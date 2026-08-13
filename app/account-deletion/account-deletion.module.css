@@ -1,0 +1,64 @@
+.page {
+  display: grid;
+  gap: var(--space-5);
+  width: min(100%, var(--content-narrow));
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-5) var(--space-12);
+}
+
+.hero { display: grid; gap: var(--space-2); }
+.hero p,
+.sectionHeading p { margin: 0; color: var(--color-primary-strong); font: var(--font-caption); font-weight: var(--font-weight-bold); }
+.hero h1 { margin: 0; color: var(--color-navy); font: var(--font-title-1); }
+.hero span { color: var(--color-text-secondary); font: var(--font-body-small); line-height: 1.55; }
+
+.section,
+.requestCard,
+.stateCard {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-1);
+}
+
+.section,
+.requestCard { display: grid; gap: var(--space-4); padding: var(--space-5); }
+.sectionHeading { display: flex; align-items: flex-start; gap: var(--space-3); }
+.sectionHeading > svg { flex: 0 0 auto; width: var(--touch-target); height: var(--touch-target); padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-danger-soft); color: var(--color-danger); }
+.sectionHeading h2 { margin: var(--space-1) 0 0; color: var(--color-text); font: var(--font-title-2); }
+
+.scopeList { display: grid; gap: var(--space-3); margin: 0; padding-left: var(--space-5); color: var(--color-text-secondary); font: var(--font-body-small); line-height: 1.55; }
+.caption { margin: 0; padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-surface-soft); color: var(--color-text-tertiary); font: var(--font-caption); line-height: 1.5; }
+
+.stateCard { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-5); color: var(--color-text-secondary); font: var(--font-body-small); }
+.stateCard svg { flex: 0 0 auto; color: var(--color-primary); }
+.stateCard div { display: grid; gap: var(--space-1); min-width: 0; }
+.stateCard h2,
+.stateCard p { margin: 0; }
+.stateCard h2 { color: var(--color-text); font: var(--font-title-3); }
+.stateCard p { line-height: 1.5; }
+.stateCard a,
+.form button { display: inline-flex; min-height: var(--touch-target); align-items: center; justify-content: center; padding: 0 var(--space-4); border: 0; border-radius: var(--radius-md); background: var(--color-primary); color: var(--color-on-primary); font: var(--font-body-small); font-weight: var(--font-weight-semibold); text-decoration: none; }
+.stateCard a { margin-left: auto; white-space: nowrap; }
+
+.demoNotice,
+.error,
+.pending,
+.form { margin: 0; padding: var(--space-4); border-radius: var(--radius-lg); }
+.demoNotice { color: var(--color-primary-strong); background: var(--color-primary-soft); font: var(--font-body-small); line-height: 1.55; }
+.error { color: var(--color-danger); background: var(--color-danger-soft); font: var(--font-body-small); }
+.pending { display: grid; gap: var(--space-1); color: var(--color-warning); background: var(--color-warning-soft); }
+.pending strong { font: var(--font-body-small); font-weight: var(--font-weight-semibold); }
+.pending span { font: var(--font-body-small); line-height: 1.5; }
+.statusHelper { margin: 0; padding: var(--space-3); border-radius: var(--radius-md); color: var(--color-text-secondary); background: var(--color-surface-soft); font: var(--font-caption); line-height: 1.55; }
+.statusHelper a { color: var(--color-primary-strong); font-weight: var(--font-weight-semibold); }
+.form { display: grid; gap: var(--space-4); background: var(--color-surface-soft); }
+.form label { display: flex; align-items: flex-start; gap: var(--space-2); color: var(--color-text-secondary); font: var(--font-body-small); line-height: 1.5; }
+.form input { width: var(--touch-target); height: var(--touch-target); flex: 0 0 auto; margin: 0; accent-color: var(--color-danger); }
+.form button { width: 100%; background: var(--color-danger); cursor: pointer; }
+.form button:disabled { cursor: not-allowed; opacity: .45; }
+
+@media (max-width: 720px) {
+  .stateCard { align-items: flex-start; flex-wrap: wrap; }
+  .stateCard a { margin-left: calc(var(--touch-target) + var(--space-3)); }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "edutalk-pwa",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "data:sync:dry-run": "tsx scripts/sync-public-institutions.ts --dry-run",
+    "data:import:dry-run": "tsx scripts/import-public-institutions.ts",
+    "verify": "pnpm typecheck && pnpm lint && pnpm build && pnpm data:sync:dry-run",
+    "release:check": "tsx scripts/check-production-readiness.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@supabase/ssr": "0.12.4",
+    "@supabase/supabase-js": "2.112.3",
+    "lucide-react": "^0.468.0",
+    "next": "^16.3.0",
+    "openai": "^7.4.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "server-only": "0.0.1",
+    "zod": "^4.1.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "eslint": "^9.17.0",
+    "eslint-config-next": "^16.3.0",
+    "tsx": "4.20.6",
+    "typescript": "^5.7.2"
+  },
+  "packageManager": "pnpm@10.30.1"
+}

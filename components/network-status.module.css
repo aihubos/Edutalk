@@ -1,0 +1,50 @@
+.banner {
+  position: fixed;
+  z-index: 45;
+  right: var(--space-4);
+  bottom: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom) + var(--space-3));
+  left: var(--space-4);
+  display: flex;
+  min-height: var(--touch-target);
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--space-2);
+  background: var(--color-warning-soft);
+  color: var(--color-warning);
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid color-mix(in srgb, var(--color-warning) 24%, var(--color-border));
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-2);
+  font: var(--font-body-small);
+  font-weight: var(--font-weight-semibold);
+}
+
+.banner span {
+  flex: 1;
+  max-width: var(--content-max);
+}
+
+.banner button {
+  display: grid;
+  min-width: var(--touch-target);
+  min-height: var(--touch-target);
+  place-items: center;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.banner button:hover {
+  background: color-mix(in srgb, var(--color-warning) 10%, transparent);
+}
+
+@media (min-width: 1024px) {
+  .banner {
+    right: var(--space-8);
+    bottom: var(--space-8);
+    left: auto;
+    width: min(100%, calc(var(--content-max) / 2));
+  }
+}

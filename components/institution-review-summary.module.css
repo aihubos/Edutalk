@@ -1,0 +1,78 @@
+.status,
+.source {
+  margin: 0;
+  color: var(--color-text-tertiary);
+  font: var(--font-caption);
+}
+
+.wrap {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.source {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-primary-strong);
+}
+
+.list {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.card {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-soft);
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.top span,
+.card p,
+.card dt {
+  color: var(--color-text-secondary);
+  font: var(--font-caption);
+  font-weight: var(--font-weight-semibold);
+}
+
+.top strong {
+  color: var(--color-text);
+  font: var(--font-title-3);
+}
+
+.card p {
+  margin: 0;
+  color: var(--color-text-tertiary);
+}
+
+.card dl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+}
+
+.card dl div {
+  display: flex;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  border-radius: 999px;
+  background: var(--color-surface);
+}
+
+.card dd {
+  margin: 0;
+  color: var(--color-primary-strong);
+  font: var(--font-caption);
+  font-weight: var(--font-weight-semibold);
+}

@@ -1,0 +1,177 @@
+:root {
+  --color-bg: #f7f8fa;
+  --color-surface: #ffffff;
+  --color-surface-soft: #f2f4f6;
+  --color-surface-raised: #fbfcfd;
+  --color-text: #191f28;
+  --color-text-secondary: #4e5968;
+  --color-text-tertiary: #647180;
+  --color-primary: #3182f6;
+  --color-primary-strong: #1b64da;
+  --color-primary-soft: #e8f3ff;
+  --color-navy: #071a52;
+  --color-border: #e5e8eb;
+  --color-success: #087a59;
+  --color-success-soft: #e5f8f2;
+  --color-warning: #8a5a00;
+  --color-warning-soft: #fff8e1;
+  --color-danger: #b4232c;
+  --color-danger-soft: #fff0f0;
+  --color-on-primary: #ffffff;
+  --color-ring: #3182f6;
+  --font-family: "Pretendard Variable", "SUIT Variable", "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+  --font-size-display: 2rem;
+  --font-size-title-1: 1.625rem;
+  --font-size-title-2: 1.25rem;
+  --font-size-title-3: 1.0625rem;
+  --font-size-body: 1rem;
+  --font-size-body-small: 0.875rem;
+  --font-size-caption: 0.75rem;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 650;
+  --font-weight-bold: 700;
+  --letter-display: -0.05rem;
+  --letter-title: -0.025rem;
+  --font-title-1: var(--font-weight-bold) var(--font-size-title-1) / 1.3 var(--font-family);
+  --font-title-2: var(--font-weight-bold) var(--font-size-title-2) / 1.35 var(--font-family);
+  --font-title-3: var(--font-weight-semibold) var(--font-size-title-3) / 1.4 var(--font-family);
+  --font-body: var(--font-weight-regular) var(--font-size-body) / 1.55 var(--font-family);
+  --font-body-small: var(--font-weight-regular) var(--font-size-body-small) / 1.5 var(--font-family);
+  --font-caption: var(--font-weight-medium) var(--font-size-caption) / 1.45 var(--font-family);
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-28: 7rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
+  --radius-pill: 999px;
+  --shadow-1: 0 1px 2px rgba(25, 31, 40, 0.04), 0 4px 12px rgba(25, 31, 40, 0.04);
+  --shadow-2: 0 8px 24px rgba(25, 31, 40, 0.1), 0 2px 8px rgba(25, 31, 40, 0.06);
+  --shadow-nav: 0 -6px 24px rgba(25, 31, 40, 0.07);
+  --touch-target: 2.75rem;
+  --control-check: 1.125rem;
+  --opacity-disabled: 0.45;
+  --opacity-disabled-soft: 0.6;
+  --scale-pressed: 0.98;
+  --header-height: 3.75rem;
+  --bottom-nav-height: 4.25rem;
+  --sidebar-width: 15.5rem;
+  --content-max: 74rem;
+  --content-narrow: 42rem;
+  --motion-fast: 140ms;
+  --motion-normal: 220ms;
+  --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-family);
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-height: 100dvh;
+  margin: 0;
+  background: var(--color-bg);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+input,
+select,
+textarea,
+a {
+  scroll-margin-block: calc(var(--header-height) + var(--space-3)) calc(var(--bottom-nav-height) + var(--space-3));
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--color-ring) 35%, transparent);
+  outline-offset: 2px;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.page-container {
+  width: min(100%, var(--content-max));
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-5);
+}
+
+.demo-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  border-radius: var(--radius-md);
+  background: var(--color-primary-soft);
+  color: var(--color-primary-strong);
+  font-size: var(--font-size-caption);
+  line-height: 1.5;
+  padding: var(--space-3) var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .page-container {
+    padding: var(--space-8);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

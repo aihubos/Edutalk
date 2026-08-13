@@ -1,0 +1,395 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  width: min(100%, 920px);
+  margin: 0 auto;
+  padding: var(--space-5) var(--space-5) var(--space-12);
+}
+
+.hero,
+.listSection,
+.registerSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  box-shadow: var(--shadow-1);
+}
+
+.registerSection {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.privacyNotice,
+.registerNotice {
+  margin: 0;
+  padding: var(--space-3);
+  color: var(--color-text-secondary);
+  background: var(--color-surface-soft);
+  border-radius: 14px;
+  font-size: 0.875rem;
+  font-weight: 650;
+  line-height: 1.55;
+}
+
+.registerNotice { color: var(--color-primary-strong); }
+
+.registerForm {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.registerForm label {
+  display: grid;
+  gap: var(--space-2);
+  color: var(--color-text);
+  font-size: 0.8125rem;
+  font-weight: 750;
+}
+
+.registerForm input:not([type="checkbox"]) {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 var(--space-3);
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  font: inherit;
+}
+
+.registerForm select {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 var(--space-3);
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  font: inherit;
+}
+
+.registerForm select:disabled,
+.registerForm button:disabled { cursor: not-allowed; }
+
+.canonicalNotice {
+  margin: 0;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  color: var(--color-primary-strong);
+  background: var(--color-primary-soft);
+  font: var(--font-body-small);
+  line-height: 1.55;
+}
+
+.registerForm .parentLink {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  color: var(--color-text-secondary);
+}
+
+.registerForm button {
+  display: inline-flex;
+  gap: var(--space-2);
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  color: var(--color-on-primary);
+  background: var(--color-primary);
+  border: 0;
+  border-radius: 14px;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.demoBadge {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 var(--space-3);
+  color: var(--color-primary-strong);
+  background: var(--color-primary-soft);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 750;
+}
+
+.heroText,
+.sectionHeader {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.kicker {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 0.8125rem;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+.heroText h1,
+.sectionHeader h2 {
+  margin: 0;
+  color: var(--color-navy);
+  font-size: clamp(1.875rem, 7vw, 2.75rem);
+  font-weight: 850;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+  word-break: keep-all;
+}
+
+.sectionHeader h2 {
+  color: var(--color-text);
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+}
+
+.heroText p:last-child {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  word-break: keep-all;
+}
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.summaryCard {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+  padding: var(--space-4);
+  color: var(--color-text-secondary);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-1);
+}
+
+.summaryCard svg,
+.sectionHeader svg {
+  color: var(--color-primary);
+}
+
+.summaryCard span {
+  font-size: 0.75rem;
+  font-weight: 750;
+}
+
+.summaryCard strong {
+  color: var(--color-text);
+  font-size: 1.125rem;
+  font-weight: 850;
+  line-height: 1.25;
+}
+
+.sectionHeader {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+}
+
+.studentList {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.studentCard {
+  display: grid;
+  gap: var(--space-4);
+  min-width: 0;
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+}
+
+.cardHeader {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.studentIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
+  border-radius: 16px;
+}
+
+.cardHeader p {
+  margin: 0 0 var(--space-1);
+  color: var(--color-text-tertiary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.cardHeader h2 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 1.125rem;
+  font-weight: 850;
+  letter-spacing: -0.02em;
+}
+
+.metricGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2);
+  margin: 0;
+}
+
+.metricGrid div {
+  min-width: 0;
+  padding: var(--space-3);
+  background: var(--color-surface-soft);
+  border-radius: 16px;
+}
+
+.metricGrid dt {
+  color: var(--color-text-tertiary);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.metricGrid dd {
+  margin: var(--space-1) 0 0;
+  overflow: hidden;
+  color: var(--color-text);
+  font-size: 0.9375rem;
+  font-weight: 800;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cardFooter {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.cardFooter span,
+.cardFooter a {
+  display: inline-flex;
+  gap: var(--space-2);
+  align-items: center;
+  min-width: 0;
+  min-height: 44px;
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.cardFooter span {
+  overflow: hidden;
+}
+
+.cardFooter a {
+  justify-content: center;
+  color: var(--color-on-primary);
+  background: var(--color-primary);
+  border-radius: 14px;
+  text-decoration: none;
+}
+
+.cardFooter a:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-ring) 24%, transparent);
+}
+
+.linkActions {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border-radius: 16px;
+  background: var(--color-surface-soft);
+}
+
+.linkActions > strong { color: var(--color-text); font: var(--font-body-small); font-weight: var(--font-weight-semibold); }
+.linkActions > div { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); }
+.linkActions button { min-height: var(--touch-target); border: 0; border-radius: var(--radius-md); background: var(--color-primary-soft); color: var(--color-primary-strong); font: var(--font-caption); font-weight: var(--font-weight-semibold); cursor: pointer; }
+.linkActions p { display: grid; gap: var(--space-1); margin: 0; color: var(--color-text-secondary); font: var(--font-caption); line-height: 1.5; }
+.linkActions p b { color: var(--color-text); }
+
+.emptyState {
+  padding: var(--space-5);
+  color: var(--color-text-secondary);
+  background: var(--color-surface-soft);
+  border-radius: 18px;
+}
+
+.emptyState p {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 650;
+  line-height: 1.55;
+}
+
+.skeletonHero,
+.skeletonCard {
+  min-height: 168px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  box-shadow: var(--shadow-1);
+}
+
+.skeletonCard {
+  min-height: 240px;
+}
+
+@media (min-width: 760px) {
+  .page {
+    gap: var(--space-6);
+    padding: var(--space-8) var(--space-6) var(--space-12);
+  }
+
+  .hero,
+  .listSection,
+  .registerSection {
+    padding: var(--space-6);
+  }
+
+  .summaryGrid,
+  .studentList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cardFooter {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+  }
+
+  .cardFooter a {
+    padding: 0 var(--space-4);
+  }
+
+  .registerForm {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .registerForm .parentLink,
+  .registerForm button {
+    grid-column: span 2;
+  }
+}

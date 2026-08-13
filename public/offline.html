@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#3182f6" />
+    <link rel="icon" href="/icons/icon-192.png" />
+    <title>오프라인 · EDU톡</title>
+    <style>
+      :root {
+        --bg: #f7f8fa;
+        --surface: #ffffff;
+        --soft: #f2f4f6;
+        --text: #191f28;
+        --secondary: #4e5968;
+        --primary: #3182f6;
+        --border: #e5e8eb;
+      }
+      * { box-sizing: border-box; }
+      body {
+        display: grid;
+        min-width: 320px;
+        min-height: 100dvh;
+        place-items: center;
+        margin: 0;
+        padding: 32px 20px;
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Pretendard Variable", "Apple SD Gothic Neo", system-ui, sans-serif;
+      }
+      main {
+        display: grid;
+        width: min(100%, 592px);
+        gap: 20px;
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        background: var(--surface);
+        padding: 32px 24px;
+        text-align: center;
+        box-shadow: 0 1px 2px rgba(25, 31, 40, .04), 0 4px 12px rgba(25, 31, 40, .04);
+      }
+      img { width: 48px; height: 48px; margin: 0 auto; border-radius: 14px; }
+      h1 { margin: 0; font-size: 26px; line-height: 1.3; letter-spacing: -.5px; }
+      p { margin: 0; color: var(--secondary); font-size: 16px; line-height: 1.55; }
+      .notice { border-radius: 12px; background: var(--soft); padding: 16px; font-size: 14px; text-align: left; }
+      a {
+        display: inline-flex;
+        min-height: 52px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 16px;
+        background: var(--primary);
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <img src="/icons/icon-192.png" alt="" />
+      <h1>인터넷 연결을 확인해 주세요</h1>
+      <p>이미 방문한 공개 화면은 일부 볼 수 있지만, 로그인·저장·후기·메시지·결제 기능은 연결이 필요해요.</p>
+      <p class="notice">연결되지 않은 동안 입력한 내용은 서버에 저장되지 않습니다. 인터넷이 돌아온 뒤 다시 시도해 주세요.</p>
+      <a href="/">다시 연결하기</a>
+    </main>
+  </body>
+</html>

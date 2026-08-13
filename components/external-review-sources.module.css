@@ -1,0 +1,205 @@
+.section {
+  display: grid;
+  gap: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-1);
+  padding: var(--space-5);
+}
+
+.header {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.eyebrow {
+  width: fit-content;
+  border-radius: var(--radius-pill);
+  background: var(--color-primary-soft);
+  color: var(--color-primary-strong);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.45;
+  padding: var(--space-1) var(--space-3);
+}
+
+.header h2 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: var(--font-size-title-2);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-title);
+  line-height: 1.35;
+}
+
+.header p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-body-small);
+  line-height: 1.55;
+}
+
+.notice {
+  margin: 0;
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-primary) 9%, var(--color-surface));
+  color: var(--color-primary-strong);
+  font-size: var(--font-size-body-small);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.5;
+  padding: var(--space-3) var(--space-4);
+}
+
+.empty,
+.unavailable,
+.searchBoundary {
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-soft);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-body-small);
+  line-height: 1.55;
+}
+
+.sourceList {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.sourceCard {
+  display: grid;
+  gap: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-raised);
+  padding: var(--space-4);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.cardHeader h3 {
+  margin: var(--space-1) 0 0;
+  color: var(--color-text);
+  font-size: var(--font-size-title-3);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-title);
+  line-height: 1.4;
+}
+
+.sourceType,
+.syntheticBadge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.5rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.45;
+  padding: var(--space-1) var(--space-2);
+}
+
+.sourceType {
+  background: var(--color-surface-soft);
+  color: var(--color-text-secondary);
+}
+
+.syntheticBadge {
+  flex: 0 0 auto;
+  background: var(--color-warning-soft);
+  color: var(--color-text-secondary);
+}
+
+.description {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-body-small);
+  line-height: 1.55;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2);
+  margin: 0;
+}
+
+.metrics div {
+  display: grid;
+  gap: var(--space-1);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  padding: var(--space-3);
+}
+
+.metrics dt {
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.45;
+}
+
+.metrics dd {
+  margin: 0;
+  color: var(--color-text);
+  font-size: var(--font-size-body-small);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.5;
+}
+
+.sourceLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--touch-target);
+  gap: var(--space-2);
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-size: var(--font-size-body-small);
+  font-weight: var(--font-weight-semibold);
+  transition:
+    background var(--motion-fast) var(--ease-standard),
+    transform var(--motion-fast) var(--ease-standard);
+}
+
+.sourceLink:hover {
+  background: var(--color-primary-strong);
+}
+
+.sourceLink:active {
+  transform: scale(0.98);
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: var(--space-6);
+  }
+
+  .sourceList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sourceCard:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 1120px) {
+  .sourceList {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .sourceCard:first-child {
+    grid-column: auto;
+  }
+
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+}

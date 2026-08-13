@@ -1,0 +1,16 @@
+.page {
+  display: grid;
+  align-content: center;
+  gap: var(--space-8);
+  width: min(100%, 34rem);
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-5) calc(var(--space-12) + var(--bottom-nav-height));
+}
+
+.hero { display: grid; gap: var(--space-3); }
+.eyebrow { margin: 0; color: var(--color-primary-strong); font: var(--font-body-small); font-weight: var(--font-weight-bold); }
+.hero h1 { margin: 0; color: var(--color-navy); font: var(--font-title-1); font-size: clamp(var(--font-size-title-1), 9vw, var(--font-size-display)); letter-spacing: var(--letter-display); line-height: 1.2; word-break: keep-all; }
+.hero p:last-child { margin: 0; color: var(--color-text-secondary); font: var(--font-body); line-height: 1.55; word-break: keep-all; }
+
+@media (min-width: 768px) { .page { padding: var(--space-12) var(--space-8); } }

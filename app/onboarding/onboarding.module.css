@@ -1,0 +1,324 @@
+.page {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: var(--space-6) var(--space-5);
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.panel {
+  display: grid;
+  gap: var(--space-6);
+  width: min(100%, 860px);
+  padding: var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: 28px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-2);
+}
+
+.header {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.kicker {
+  margin: 0;
+  color: var(--color-primary);
+  font: var(--font-caption);
+  font-weight: 750;
+}
+
+.header h1 {
+  margin: 0;
+  color: var(--color-navy);
+  font: var(--font-title-1);
+}
+
+.header p {
+  max-width: 40rem;
+  margin: 0;
+  color: var(--color-text-secondary);
+  font: var(--font-body-small);
+}
+
+.step {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.stepTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.stepTitle > svg {
+  width: 44px;
+  height: 44px;
+  padding: var(--space-3);
+  border-radius: 16px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.stepTitle h2 {
+  margin: var(--space-1) 0 0;
+  color: var(--color-text);
+  font: var(--font-title-2);
+}
+
+.optionGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.optionButton,
+.zoneButton,
+.startButton {
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  transition:
+    transform 140ms cubic-bezier(.2, .8, .2, 1),
+    border-color 140ms cubic-bezier(.2, .8, .2, 1),
+    background-color 140ms cubic-bezier(.2, .8, .2, 1);
+}
+
+.optionButton {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-3);
+  min-height: 9rem;
+  padding: var(--space-4);
+  border-radius: 20px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  text-align: left;
+}
+
+.optionButton span,
+.zoneButton {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.optionButton strong,
+.zoneButton strong {
+  font: var(--font-title-3);
+}
+
+.optionButton small,
+.zoneButton small {
+  color: var(--color-text-secondary);
+  font: var(--font-caption);
+}
+
+.optionButton svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--color-primary);
+}
+
+.selected,
+.selectedZone {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+
+.zoneGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.ageGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.guardNotice {
+  margin: 0;
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-warning-soft);
+  color: var(--color-warning);
+  font: var(--font-body-small);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.55;
+}
+
+.consentList {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.profileHint {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font: var(--font-body-small);
+  line-height: 1.5;
+}
+
+.profileGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.profileGrid label {
+  display: grid;
+  gap: var(--space-2);
+  color: var(--color-text);
+  font: var(--font-body-small);
+  font-weight: var(--font-weight-semibold);
+}
+
+.profileGrid input {
+  min-height: var(--touch-target);
+  padding: 0 var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-soft);
+  color: var(--color-text);
+  font: var(--font-body-small);
+}
+
+.consentList label {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--space-3);
+  align-items: flex-start;
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-soft);
+}
+
+.consentList input {
+  width: var(--touch-target);
+  height: var(--touch-target);
+  margin: 0;
+  accent-color: var(--color-primary);
+}
+
+.consentList span {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.consentList strong { color: var(--color-text); font: var(--font-body-small); font-weight: var(--font-weight-semibold); }
+.consentList small { color: var(--color-text-secondary); font: var(--font-caption); line-height: 1.5; }
+
+.zoneButton {
+  min-height: 6.5rem;
+  padding: var(--space-4);
+  border-radius: 18px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  text-align: left;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+.footer div {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.footer strong {
+  color: var(--color-text);
+  font: var(--font-body-small);
+  font-weight: 750;
+}
+
+.footer span {
+  color: var(--color-text-secondary);
+  font: var(--font-caption);
+}
+
+.startButton {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0 var(--space-5);
+  border-color: var(--color-primary);
+  border-radius: 16px;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font: var(--font-body-small);
+  font-weight: 750;
+}
+
+.startButton svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.startButton:disabled { cursor: not-allowed; opacity: .45; }
+
+.submitError {
+  margin: 0;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-danger-soft);
+  color: var(--color-danger);
+  font: var(--font-body-small);
+  line-height: 1.5;
+}
+
+.optionButton:active,
+.zoneButton:active,
+.startButton:active {
+  transform: scale(.98);
+}
+
+.optionButton:focus-visible,
+.zoneButton:focus-visible,
+.startButton:focus-visible {
+  outline: 3px solid var(--color-ring);
+  outline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  .page {
+    place-items: stretch;
+    padding: var(--space-5);
+  }
+
+  .panel {
+    padding: var(--space-5);
+    border-radius: 24px;
+  }
+
+  .optionGrid,
+  .zoneGrid,
+  .ageGrid,
+  .profileGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .optionButton,
+  .zoneButton,
+  .startButton {
+    transition: none;
+  }
+}

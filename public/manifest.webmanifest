@@ -1,0 +1,25 @@
+{
+  "name": "EDU톡",
+  "short_name": "EDU톡",
+  "description": "동탄 교육기관과 튜터를 찾고 학생 성장을 관리하는 교육 플랫폼",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F7F8FA",
+  "theme_color": "#3182F6",
+  "lang": "ko-KR",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

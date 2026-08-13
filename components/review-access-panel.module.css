@@ -1,0 +1,95 @@
+.loading,
+.demo {
+  margin: 0;
+  color: var(--color-text-tertiary);
+  font: var(--font-caption);
+  line-height: 1.5;
+}
+
+.access,
+.locked {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.accessNotice {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-success-soft);
+  color: var(--color-success);
+  font: var(--font-body-small);
+  font-weight: var(--font-weight-semibold);
+}
+
+.highlights {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.highlights li {
+  display: flex;
+  gap: var(--space-2);
+  align-items: flex-start;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-primary-soft);
+  color: var(--color-text-secondary);
+  font: var(--font-body-small);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.55;
+}
+
+.highlights li span { flex: 1 1 auto; min-width: 0; }
+
+.addenda { display: grid; gap: var(--space-1); flex-basis: 100%; color: var(--color-text-secondary); font: var(--font-caption); }
+.addenda strong { color: var(--color-text); font-weight: var(--font-weight-semibold); }
+.addenda p { margin: 0; line-height: 1.5; }
+
+.reportLink {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--touch-target);
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-md);
+  color: var(--color-danger);
+  font: var(--font-caption);
+  font-weight: var(--font-weight-semibold);
+}
+
+.reportLink:hover { background: var(--color-danger-soft); }
+.reportLink:focus-visible { outline: var(--focus-ring); outline-offset: var(--focus-offset); }
+.highlightActions { display: flex; flex: 0 0 auto; flex-wrap: wrap; gap: var(--space-1); justify-content: flex-end; }
+.hideButton { display: inline-flex; min-height: var(--touch-target); align-items: center; gap: var(--space-1); border: 0; border-radius: var(--radius-md); background: transparent; color: var(--color-text-secondary); padding: 0 var(--space-2); font: var(--font-caption); font-weight: var(--font-weight-semibold); cursor: pointer; }
+.hideButton:hover { background: var(--color-surface-soft); }.hideButton:disabled { cursor: default; opacity: .55; }.hideButton:focus-visible { outline: var(--focus-ring); outline-offset: var(--focus-offset); }
+.preferenceError { margin: 0; border-radius: var(--radius-md); background: var(--color-danger-soft); color: var(--color-danger); padding: var(--space-3); font: var(--font-caption); }
+
+.highlights svg { flex: 0 0 auto; margin-top: var(--space-1); color: var(--color-primary); }
+
+.locked {
+  grid-template-columns: auto minmax(0, 1fr);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-soft);
+  color: var(--color-text-tertiary);
+}
+
+.locked > div { display: grid; gap: var(--space-2); }
+.locked strong { color: var(--color-text); font: var(--font-body-small); font-weight: var(--font-weight-semibold); }
+.locked p { margin: 0; color: var(--color-text-secondary); font: var(--font-body-small); line-height: 1.55; }
+.locked a { display: inline-flex; align-items: center; justify-content: center; width: fit-content; min-height: var(--touch-target); padding: 0 var(--space-4); border-radius: var(--radius-md); background: var(--color-primary); color: var(--color-on-primary); font: var(--font-body-small); font-weight: var(--font-weight-semibold); }
+.locked small { color: var(--color-text-tertiary); font: var(--font-caption); line-height: 1.5; }
+
+.previews { display: grid; gap: var(--space-2); padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); }
+.previews > strong { color: var(--color-primary-strong); }
+.previews > p { display: grid; gap: var(--space-1); padding-bottom: var(--space-2); border-bottom: 1px solid var(--color-border); }
+.previews > p:last-of-type { padding-bottom: 0; border-bottom: 0; }
+.previews span { color: var(--color-text-secondary); }
+.previews small { color: var(--color-text-tertiary); }

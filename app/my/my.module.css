@@ -1,0 +1,572 @@
+.page {
+  width: min(100%, 860px);
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-5) var(--space-12);
+  color: var(--color-text);
+}
+
+.header {
+  display: grid;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+
+.header h1 {
+  margin: 0;
+  color: var(--color-navy);
+  font: var(--font-title-1);
+}
+
+.header p {
+  max-width: 34rem;
+  margin: 0;
+  color: var(--color-text-secondary);
+  font: var(--font-body-small);
+}
+
+.kicker {
+  margin: 0;
+  color: var(--color-primary-strong);
+  font: var(--font-caption);
+  font-weight: 750;
+}
+
+.profileCard,
+.section,
+.signOutBox,
+.authSection,
+.consentSection,
+.deletionSection,
+.roleProfileSection,
+.childrenSection {
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-1);
+}
+
+.favoritesSection {
+  display: grid;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-1);
+}
+
+.tutorActivityCard { display: grid; gap: var(--space-4); margin-bottom: var(--space-5); padding: var(--space-5); border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-primary-soft); }.tutorActivityCard h2 { margin: var(--space-1) 0 0; color: var(--color-text); font: var(--font-title-2); }.tutorActivityCard p:not(.kicker) { margin: var(--space-2) 0 0; color: var(--color-text-secondary); font: var(--font-body-small); line-height: 1.5; }.tutorActivityCard a { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-1); min-height: var(--touch-target); width: fit-content; padding: 0 var(--space-4); border-radius: var(--radius-md); background: var(--color-primary); color: var(--color-on-primary); font: var(--font-body-small); font-weight: var(--font-weight-semibold); }.tutorActivityCard a:focus-visible { outline: var(--focus-ring); outline-offset: var(--focus-offset); }
+
+.favoritesList { display: grid; gap: var(--space-2); }
+.favoritesList a { display: flex; min-height: var(--touch-target); align-items: center; justify-content: space-between; gap: var(--space-3); border-radius: var(--radius-md); background: var(--color-surface-soft); color: var(--color-text); padding: 0 var(--space-4); font: var(--font-body-small); font-weight: var(--font-weight-semibold); }
+.favoritesList svg { color: var(--color-primary); }
+.favoritesError { margin: 0; padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-danger-soft); color: var(--color-danger); font: var(--font-body-small); }
+
+.roleProfileSection {
+  display: grid;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+  padding: var(--space-5);
+}
+
+.roleProfileList {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.roleProfileList > strong { color: var(--color-text); font: var(--font-body-small); font-weight: var(--font-weight-semibold); }
+.roleProfileList div { display: flex; justify-content: space-between; gap: var(--space-3); padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-surface-soft); }
+.roleProfileList span { color: var(--color-text-tertiary); font: var(--font-caption); }
+.roleProfileList b { color: var(--color-text); font: var(--font-body-small); font-weight: var(--font-weight-semibold); text-align: right; }
+.profileEditButton { min-height: var(--touch-target); padding: 0 var(--space-3); border: 0; border-radius: var(--radius-md); color: var(--color-primary-strong); background: var(--color-primary-soft); font: var(--font-body-small); font-weight: var(--font-weight-semibold); cursor: pointer; }
+.profileForm { display: grid; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-lg); background: var(--color-surface-soft); }
+.profileForm label { display: grid; gap: var(--space-2); color: var(--color-text); font: var(--font-body-small); font-weight: var(--font-weight-semibold); }
+.profileForm input { min-height: var(--touch-target); padding: 0 var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md); color: var(--color-text); background: var(--color-surface); font: var(--font-body-small); }
+.profileForm > div { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.profileForm button { min-height: var(--touch-target); padding: 0 var(--space-3); border: 0; border-radius: var(--radius-md); color: var(--color-primary-strong); background: var(--color-primary-soft); font: var(--font-body-small); font-weight: var(--font-weight-semibold); cursor: pointer; }
+.profileForm > div button:first-child { color: var(--color-on-primary); background: var(--color-primary); }
+.profileForm button:disabled { cursor: not-allowed; opacity: var(--opacity-disabled-soft); }
+.profileError { margin: 0; padding: var(--space-3); border-radius: var(--radius-md); color: var(--color-danger); background: var(--color-danger-soft); font: var(--font-body-small); }
+.profileEmpty { margin: 0; padding: var(--space-4); border-radius: var(--radius-lg); background: var(--color-surface-soft); color: var(--color-text-secondary); font: var(--font-body-small); line-height: 1.55; }
+
+.childrenSection { display: grid; gap: var(--space-4); margin-bottom: var(--space-5); padding: var(--space-5); }
+.childrenNotice { margin: 0; padding: var(--space-3); border-radius: var(--radius-md); color: var(--color-primary-strong); background: var(--color-primary-soft); font: var(--font-body-small); line-height: 1.55; }
+.childrenError { margin: 0; padding: var(--space-3); border-radius: var(--radius-md); color: var(--color-danger); background: var(--color-danger-soft); font: var(--font-body-small); line-height: 1.5; }
+.childrenList { display: grid; gap: var(--space-2); }
+.childrenList article { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-surface-soft); }
+.childrenList article > div { display: grid; gap: var(--space-1); min-width: 0; }
+.childrenList strong { color: var(--color-text); font: var(--font-body-small); font-weight: var(--font-weight-semibold); }
+.childrenList span { color: var(--color-text-secondary); font: var(--font-caption); }
+.childrenList article > div:last-child { display: flex; flex: 0 0 auto; gap: var(--space-2); }
+.childrenList button,
+.childForm button { min-height: var(--touch-target); padding: 0 var(--space-3); border: 0; border-radius: var(--radius-md); color: var(--color-primary-strong); background: var(--color-primary-soft); font: var(--font-body-small); font-weight: var(--font-weight-semibold); cursor: pointer; }
+.childrenList button:last-child { color: var(--color-danger); background: var(--color-danger-soft); }
+.childForm { display: grid; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-lg); background: var(--color-surface-soft); }
+.childForm label { display: grid; gap: var(--space-2); color: var(--color-text); font: var(--font-body-small); font-weight: var(--font-weight-semibold); }
+.childForm input { min-height: var(--touch-target); padding: 0 var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md); color: var(--color-text); background: var(--color-surface); font: var(--font-body-small); }
+.childForm > div { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.childForm > div button:first-child { color: var(--color-on-primary); background: var(--color-primary); }
+.childrenList button:disabled,
+.childForm button:disabled { cursor: not-allowed; }
+
+.deletionSection {
+  display: grid;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+  padding: var(--space-5);
+}
+
+.deletionImpact,
+.deletionPending,
+.deletionForm {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+}
+
+.deletionImpact {
+  background: var(--color-danger-soft);
+  color: var(--color-danger);
+}
+
+.deletionImpact strong,
+.deletionPending strong { font: var(--font-body-small); font-weight: var(--font-weight-semibold); }
+.deletionImpact p,
+.deletionPending span { margin: 0; font: var(--font-body-small); line-height: 1.55; }
+
+.deletionForm { background: var(--color-surface-soft); }
+.deletionForm label { display: flex; gap: var(--space-2); align-items: flex-start; color: var(--color-text-secondary); font: var(--font-body-small); line-height: 1.5; }
+.deletionForm input { width: var(--touch-target); height: var(--touch-target); margin: 0; accent-color: var(--color-danger); }
+.deletionForm button { min-height: var(--touch-target); border: 0; border-radius: var(--radius-md); background: var(--color-danger); color: var(--color-on-primary); font: var(--font-body-small); font-weight: var(--font-weight-semibold); cursor: pointer; }
+.deletionForm button:disabled { cursor: not-allowed; opacity: .45; }
+.deletionPending { background: var(--color-warning-soft); color: var(--color-warning); }
+
+.consentSection {
+  display: grid;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+  padding: var(--space-5);
+}
+
+.consentSection .sectionHeader > a {
+  color: var(--color-primary-strong);
+  font: var(--font-body-small);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+}
+
+.consentStatus {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.consentStatus div {
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-soft);
+}
+
+.consentStatus span,
+.consentCaption {
+  margin: 0;
+  color: var(--color-text-tertiary);
+  font: var(--font-caption);
+  line-height: 1.5;
+}
+
+.consentStatus strong { color: var(--color-text); font: var(--font-body-small); font-weight: var(--font-weight-semibold); }
+.consentHistory { display: grid; gap: var(--space-2); padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-surface-soft); }
+.consentHistory > strong { color: var(--color-text); font: var(--font-body-small); font-weight: var(--font-weight-semibold); }
+.consentHistory > p { margin: 0; color: var(--color-text-secondary); font: var(--font-caption); line-height: 1.5; }
+.consentHistory ul { display: grid; gap: var(--space-2); margin: 0; padding: 0; list-style: none; }
+.consentHistory li { display: grid; gap: var(--space-1); padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-surface); }
+.consentHistory time { color: var(--color-text-tertiary); font: var(--font-caption); }
+.consentHistory li > span { color: var(--color-text); font: var(--font-body-small); font-weight: var(--font-weight-semibold); }
+.consentHistory small { color: var(--color-text-secondary); font: var(--font-caption); line-height: 1.5; }
+.consentHistoryError { color: var(--color-danger) !important; }
+
+.authSection {
+  display: grid;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+  padding: var(--space-5);
+}
+
+.loginOptions,
+.magicLink,
+.signedIn,
+.authUnavailable {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.oauthRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+
+.oauthRow button,
+.magicLink button,
+.signedIn button {
+  min-height: var(--touch-target);
+  padding: 0 var(--space-4);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--color-primary-strong);
+  color: var(--color-on-primary);
+  font: var(--font-body-small);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+}
+
+.magicLink {
+  color: var(--color-text);
+  font: var(--font-body-small);
+  font-weight: var(--font-weight-semibold);
+}
+
+.magicLink input {
+  min-height: var(--touch-target);
+  padding: 0 var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-soft);
+  color: var(--color-text);
+  font: var(--font-body-small);
+}
+
+.oidcNotice,
+.authUnavailable span,
+.authUnavailable p,
+.signedIn span {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font: var(--font-body-small);
+  line-height: 1.5;
+}
+
+.signedIn {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-soft);
+}
+
+.signedIn div { display: grid; gap: var(--space-1); min-width: 0; }
+.signedIn strong { overflow: hidden; color: var(--color-text); font: var(--font-body-small); text-overflow: ellipsis; white-space: nowrap; }
+.authUnavailable { padding: var(--space-4); border-radius: var(--radius-lg); background: var(--color-surface-soft); }
+.authUnavailable strong { color: var(--color-text); font: var(--font-body-small); font-weight: var(--font-weight-semibold); }
+
+.oauthRow button:disabled,
+.magicLink button:disabled,
+.signedIn button:disabled { cursor: not-allowed; opacity: .45; }
+
+.profileCard {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-5);
+}
+
+.avatar,
+.menuIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.avatar {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 20px;
+}
+
+.avatar svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.profileText h2 {
+  margin: var(--space-1) 0;
+  color: var(--color-text);
+  font: var(--font-title-2);
+}
+
+.profileText p:last-child {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font: var(--font-body-small);
+}
+
+.statusPill {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 0 var(--space-3);
+  border-radius: 999px;
+  background: var(--color-surface-soft);
+  color: var(--color-text-secondary);
+  font: var(--font-caption);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.statusPill svg,
+.notice svg,
+.signOutBox svg,
+.menuAction svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.notice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  margin: var(--space-4) 0;
+  padding: var(--space-3) var(--space-4);
+  border-radius: 16px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary-strong);
+  font: var(--font-body-small);
+  font-weight: 650;
+}
+
+.notice svg {
+  flex: 0 0 auto;
+  margin-top: .15rem;
+}
+
+.section {
+  display: grid;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+  padding: var(--space-5);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.sectionHeader h2 {
+  margin: var(--space-1) 0 0;
+  color: var(--color-text);
+  font: var(--font-title-2);
+}
+
+.sectionHeader span {
+  color: var(--color-text-tertiary);
+  font: var(--font-caption);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.roleGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.roleButton,
+.menuButton {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    transform var(--motion-fast) var(--ease-standard),
+    border-color var(--motion-fast) var(--ease-standard),
+    background-color var(--motion-fast) var(--ease-standard);
+}
+
+.roleButton {
+  display: grid;
+  gap: var(--space-4);
+  min-height: 7.5rem;
+  padding: var(--space-4);
+  border-radius: 18px;
+  text-align: left;
+}
+
+.roleButton span {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.roleButton strong {
+  font: var(--font-title-3);
+}
+
+.roleButton small,
+.menuText small {
+  color: var(--color-text-secondary);
+  font: var(--font-caption);
+}
+
+.roleButton em {
+  width: fit-content;
+  align-self: end;
+  padding: var(--space-1) var(--space-3);
+  border-radius: 999px;
+  background: var(--color-surface-soft);
+  color: var(--color-text-secondary);
+  font: var(--font-caption);
+  font-style: normal;
+  font-weight: 750;
+}
+
+.activeRole {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+
+.activeRole em {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.disabledRole,
+.disabledRole:active {
+  cursor: not-allowed;
+  opacity: .55;
+  transform: none;
+}
+
+.menuList {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.menuButton {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  min-height: 76px;
+  padding: var(--space-3);
+  border-radius: 18px;
+  text-align: left;
+}
+
+.menuIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 16px;
+}
+
+.menuIcon svg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.menuText {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.menuText strong {
+  font: var(--font-body-small);
+  font-weight: 750;
+}
+
+.menuAction {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--color-text-tertiary);
+  font: var(--font-caption);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.dangerMenu .menuIcon {
+  background: color-mix(in srgb, var(--color-danger) 12%, var(--color-surface));
+  color: var(--color-danger);
+}
+
+.dangerMenu .menuText strong {
+  color: var(--color-danger);
+}
+
+.signOutBox {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  color: var(--color-text-secondary);
+}
+
+.signOutBox svg {
+  flex: 0 0 auto;
+  color: var(--color-primary);
+}
+
+.signOutBox h2 {
+  margin: 0 0 var(--space-1);
+  color: var(--color-text);
+  font: var(--font-title-3);
+}
+
+.signOutBox p {
+  margin: 0;
+  font: var(--font-body-small);
+}
+
+.roleButton:active,
+.menuButton:active {
+  transform: scale(.98);
+}
+
+.roleButton:focus-visible,
+.menuButton:focus-visible {
+  outline: 3px solid var(--color-ring);
+  outline-offset: 3px;
+}
+
+@media (max-width: 720px) {
+  .profileCard,
+  .sectionHeader,
+  .signOutBox {
+    align-items: stretch;
+    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+
+  .roleGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .oauthRow,
+  .signedIn { grid-template-columns: 1fr; }
+
+  .menuButton {
+    grid-template-columns: auto 1fr;
+  }
+
+  .menuAction {
+    grid-column: 2;
+    justify-self: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .roleButton,
+  .menuButton {
+    transition: none;
+  }
+}

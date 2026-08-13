@@ -1,0 +1,17 @@
+.panel { display: grid; gap: var(--space-3); }
+.controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); padding: var(--space-1); border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface-soft); }
+.controls button { display: inline-flex; min-height: var(--touch-target); align-items: center; justify-content: center; gap: var(--space-2); border: 0; border-radius: var(--radius-md); color: var(--color-text-secondary); background: transparent; font: var(--font-body-small); font-weight: var(--font-weight-semibold); cursor: pointer; }
+.controls button[data-active="true"] { color: var(--color-primary-strong); background: var(--color-surface); box-shadow: var(--shadow-1); }
+.controls svg { width: 17px; height: 17px; }
+.notice, .summary, .empty { margin: 0; font: var(--font-caption); line-height: 1.5; }
+.notice { display: flex; gap: var(--space-2); align-items: flex-start; padding: var(--space-3); border-radius: var(--radius-md); color: var(--color-primary-strong); background: var(--color-primary-soft); }
+.notice svg { width: 17px; height: 17px; flex: 0 0 auto; }
+.summary { color: var(--color-text-secondary); }
+.map { position: relative; min-height: 20rem; overflow: hidden; border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: radial-gradient(circle at 25% 20%, var(--color-primary-soft), transparent 36%), var(--color-surface-soft); }
+.map::before, .map::after { position: absolute; inset: 10%; border: 1px dashed var(--color-border); border-radius: var(--radius-lg); content: ""; pointer-events: none; }.map::after { inset: 28% 20%; }
+.marker { position: absolute; z-index: 1; display: inline-flex; min-width: var(--touch-target); min-height: var(--touch-target); align-items: center; gap: var(--space-1); transform: translate(-50%, -50%); border: 0; border-radius: var(--radius-pill); color: var(--color-on-primary); background: var(--color-primary); padding: 0 var(--space-2); box-shadow: var(--shadow-1); font: var(--font-caption); font-weight: var(--font-weight-semibold); cursor: pointer; }
+.marker[data-selected="true"] { background: var(--color-primary-strong); box-shadow: var(--shadow-2); }.marker svg { width: 17px; height: 17px; flex: 0 0 auto; }.marker span { max-width: 8rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.marker:focus-visible, .controls button:focus-visible { outline: var(--focus-ring); outline-offset: var(--focus-offset); }
+.list :global([data-coordinate-list-item][data-selected="true"]) { outline: var(--focus-ring); outline-offset: var(--focus-offset); }
+.empty { padding: var(--space-5); border-radius: var(--radius-lg); color: var(--color-text-secondary); background: var(--color-surface-soft); text-align: center; }
+@media (max-width: 440px) { .map { min-height: 18rem; }.marker span { display: none; }.marker { width: var(--touch-target); padding: 0; justify-content: center; } }

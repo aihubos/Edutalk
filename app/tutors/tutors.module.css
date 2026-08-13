@@ -1,0 +1,964 @@
+.page {
+  width: min(100%, var(--content-max, 1180px));
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-5) var(--space-12);
+  color: var(--color-text);
+}
+
+.hero {
+  display: grid;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+
+.hero h1 {
+  max-width: 40rem;
+  margin: 0;
+  color: var(--color-navy);
+  font: var(--font-title-1);
+}
+
+.hero p:last-child {
+  max-width: 44rem;
+  margin: 0;
+  color: var(--color-text-secondary);
+  font: var(--font-body-small);
+}
+
+.kicker {
+  margin: 0;
+  color: var(--color-primary);
+  font: var(--font-caption);
+  font-weight: 750;
+}
+
+.actionPanel {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.lessonCodePanel {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-3);
+  align-items: center;
+  margin: 0 0 var(--space-4);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-1);
+}
+
+.lessonCodePanel > div { display: grid; gap: var(--space-1); }
+.lessonCodePanel strong { color: var(--color-navy); font: var(--font-title-2); letter-spacing: .08em; }
+.lessonCodePanel span,
+.lessonCodePanel > p { margin: 0; color: var(--color-text-secondary); font: var(--font-caption); }
+.lessonCodePanel > p { grid-column: 1 / -1; }
+.lessonCodePanel button { display: inline-flex; min-height: var(--touch-target); align-items: center; gap: var(--space-2); padding: 0 var(--space-4); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface-soft); color: var(--color-primary); font: var(--font-body-small); font-weight: 750; cursor: pointer; }
+.lessonCodePanel button svg { width: 1rem; height: 1rem; }
+
+.primaryAction,
+.secondaryAction,
+.tabs button,
+.closeButton,
+.submitButton {
+  min-height: 44px;
+  border: 0;
+  border-radius: 16px;
+  cursor: pointer;
+  font: var(--font-body-small);
+  font-weight: 750;
+  transition:
+    transform 140ms cubic-bezier(.2, .8, .2, 1),
+    background-color 140ms cubic-bezier(.2, .8, .2, 1),
+    border-color 140ms cubic-bezier(.2, .8, .2, 1);
+}
+
+.primaryAction,
+.secondaryAction,
+.submitButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0 var(--space-5);
+}
+
+.primaryAction:disabled,
+.secondaryAction:disabled {
+  cursor: not-allowed;
+  opacity: .6;
+}
+
+.primaryAction,
+.submitButton {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.secondaryAction {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-primary);
+}
+
+.primaryAction svg,
+.secondaryAction svg,
+.submitButton svg,
+.notice svg,
+.filterTitle svg,
+.localNote svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.notice,
+.localNote {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-radius: 16px;
+  font: var(--font-body-small);
+}
+
+.notice {
+  margin: 0 0 var(--space-4);
+  background: var(--color-primary-soft);
+  color: var(--color-primary-strong);
+  font-weight: 650;
+}
+
+.serverState {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-4);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  background: var(--color-surface-soft);
+  color: var(--color-text-secondary);
+}
+
+.serverState > svg {
+  flex: 0 0 auto;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--color-primary);
+}
+
+.serverState > div {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.serverState strong {
+  color: var(--color-text);
+  font: var(--font-body-small);
+}
+
+.serverState p {
+  margin: 0;
+  font: var(--font-caption);
+}
+
+.serverState button {
+  width: fit-content;
+  min-height: 40px;
+  padding: 0 var(--space-3);
+  border: 0;
+  border-radius: 14px;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  cursor: pointer;
+  font: var(--font-body-small);
+  font-weight: 750;
+}
+
+.notice svg,
+.localNote svg {
+  flex: 0 0 auto;
+  margin-top: .15rem;
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2);
+  padding: var(--space-1);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  background: var(--color-surface-soft);
+  margin-bottom: var(--space-4);
+}
+
+.tabs button {
+  background: transparent;
+  color: var(--color-text-secondary);
+}
+
+.tabs .activeTab {
+  background: var(--color-surface);
+  color: var(--color-primary);
+  box-shadow: var(--shadow-1);
+}
+
+.filterPanel,
+.listSection,
+.modalCard,
+.localNote {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-1);
+}
+
+.filterPanel {
+  display: grid;
+  grid-template-columns: minmax(10rem, 1.25fr) repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+  align-items: end;
+  margin-bottom: var(--space-5);
+  padding: var(--space-4);
+  border-radius: 20px;
+}
+
+.filterTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  color: var(--color-text);
+}
+
+.filterTitle strong {
+  font: var(--font-body-small);
+  font-weight: 750;
+}
+
+.filterPanel label,
+.formGrid label {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.filterPanel span,
+.formGrid label > span,
+.checkLabel span,
+.formNote {
+  color: var(--color-text-secondary);
+  font: var(--font-caption);
+  font-weight: 650;
+}
+
+.filterPanel select,
+.keywordField input,
+.formGrid input,
+.formGrid textarea {
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 16px;
+  background: var(--color-surface-soft);
+  color: var(--color-text);
+  font: var(--font-body-small);
+}
+
+.filterPanel select,
+.formGrid input {
+  min-height: 48px;
+  padding: 0 var(--space-3);
+}
+
+.keywordField > div {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0 var(--space-3);
+  border: 1px solid transparent;
+  border-radius: 16px;
+  background: var(--color-surface-soft);
+}
+
+.keywordField > div:focus-within {
+  border-color: var(--color-primary);
+  outline: 3px solid var(--color-ring);
+  outline-offset: 2px;
+  background: var(--color-surface);
+}
+
+.keywordField svg { flex: 0 0 auto; width: 1rem; height: 1rem; color: var(--color-text-tertiary); }
+
+.keywordField input {
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  outline: 0;
+}
+
+.keywordField button {
+  display: inline-flex;
+  width: 1.75rem;
+  height: 1.75rem;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.formGrid textarea {
+  min-height: 7rem;
+  padding: var(--space-3);
+  resize: vertical;
+}
+
+.filterPanel select:focus,
+.formGrid input:focus,
+.formGrid textarea:focus {
+  border-color: var(--color-primary);
+  outline: 3px solid var(--color-ring);
+  outline-offset: 2px;
+  background: var(--color-surface);
+}
+
+.listSection {
+  display: grid;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+  padding: var(--space-5);
+  border-radius: 20px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.sectionHeader h2 {
+  margin: var(--space-1) 0 0;
+  color: var(--color-text);
+  font: var(--font-title-2);
+}
+
+.sectionHeader > span {
+  color: var(--color-text-tertiary);
+  font: var(--font-caption);
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.cardList,
+.jobList {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.tutorCard {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--space-3);
+  align-items: center;
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  background: var(--color-surface);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    transform 140ms cubic-bezier(.2, .8, .2, 1),
+    border-color 140ms cubic-bezier(.2, .8, .2, 1);
+}
+
+.rankBadge {
+  display: inline-flex;
+  width: 2.25rem;
+  height: 2.25rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font: var(--font-caption);
+  font-weight: 800;
+}
+
+.cardBody {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.cardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.cardTop h3,
+.jobCard h3 {
+  margin: 0;
+  color: var(--color-text);
+  font: var(--font-title-3);
+}
+
+.cardTop p {
+  margin: var(--space-1) 0 0;
+  color: var(--color-text-secondary);
+  font: var(--font-caption);
+}
+
+.dataSource {
+  margin: var(--space-2) 0 0;
+  color: var(--color-text-tertiary);
+  font: var(--font-caption);
+}
+
+.applicationBox { display: grid; gap: var(--space-2); margin-top: var(--space-3); }
+.applicationBox label { display: grid; gap: var(--space-1); color: var(--color-text-secondary); font: var(--font-caption); }
+.applicationBox textarea { min-height: calc(var(--touch-target) * 2); padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); color: var(--color-text); font: var(--font-body-small); resize: vertical; }
+.applicationBox button { min-height: var(--touch-target); border: 0; border-radius: var(--radius-md); background: var(--color-primary-soft); color: var(--color-primary-strong); font: var(--font-body-small); font-weight: var(--font-weight-semibold); cursor: pointer; }
+
+.requestInbox {
+  display: grid;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-1);
+}
+
+.inboxNote,
+.requestEmpty {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font: var(--font-body-small);
+}
+
+.requestGroups,
+.requestList,
+.requestGroup,
+.requestCard,
+.responseForm {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.requestGroup {
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-soft);
+}
+
+.requestGroup h3 {
+  margin: 0;
+  color: var(--color-text);
+  font: var(--font-title-3);
+}
+
+.requestCard {
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.requestMeta,
+.requestCard dl,
+.responseMessage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.requestMeta span,
+.requestCard dd {
+  color: var(--color-primary-strong);
+  font: var(--font-caption);
+  font-weight: var(--font-weight-semibold);
+}
+
+.requestMeta small,
+.requestCard dt {
+  color: var(--color-text-tertiary);
+  font: var(--font-caption);
+}
+
+.requestCard > p,
+.responseMessage p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font: var(--font-body-small);
+  white-space: pre-wrap;
+}
+
+.requestCard dl {
+  margin: 0;
+  justify-content: flex-start;
+}
+
+.requestCard dl div {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.requestCard dd {
+  margin: 0;
+}
+
+.responseMessage {
+  align-items: flex-start;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-primary-soft);
+}
+
+.responseMessage strong {
+  flex: 0 0 auto;
+  color: var(--color-primary-strong);
+  font: var(--font-caption);
+}
+
+.responseForm {
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+
+.responseForm label {
+  display: grid;
+  gap: var(--space-1);
+  color: var(--color-text-secondary);
+  font: var(--font-caption);
+  font-weight: var(--font-weight-semibold);
+}
+
+.responseForm select,
+.responseForm textarea {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: var(--font-body-small);
+}
+
+.responseForm select {
+  min-height: var(--touch-target);
+  padding: 0 var(--space-3);
+}
+
+.responseForm textarea {
+  min-height: calc(var(--touch-target) * 2);
+  padding: var(--space-3);
+  resize: vertical;
+}
+
+.responseForm button {
+  min-height: var(--touch-target);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font: var(--font-body-small);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+}
+
+.verified,
+.pending {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  border-radius: 999px;
+  font: var(--font-caption);
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.verified {
+  background: color-mix(in srgb, var(--color-success) 12%, var(--color-surface));
+  color: var(--color-success);
+}
+
+.pending {
+  background: var(--color-surface-soft);
+  color: var(--color-text-secondary);
+}
+
+.verified svg {
+  width: .875rem;
+  height: .875rem;
+}
+
+.tagRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.tagRow span {
+  padding: var(--space-1) var(--space-2);
+  border-radius: 999px;
+  background: var(--color-surface-soft);
+  color: var(--color-text-secondary);
+  font: var(--font-caption);
+  font-weight: 650;
+}
+
+.metricRow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-2);
+  margin: 0;
+}
+
+.metricRow div {
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-2);
+  border-radius: 14px;
+  background: var(--color-surface-soft);
+}
+
+.metricRow dt {
+  color: var(--color-text-tertiary);
+  font: var(--font-caption);
+}
+
+.metricRow dd {
+  margin: 0;
+  color: var(--color-text);
+  font: var(--font-caption);
+  font-weight: 750;
+}
+
+.credentialRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.credentialRow span {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-success) 10%, var(--color-surface));
+  color: var(--color-success);
+  font: var(--font-caption);
+  font-weight: 700;
+}
+
+.credentialRow svg { width: .85rem; height: .85rem; }
+.credentialRow .pendingCredential { background: var(--color-surface-soft); color: var(--color-text-tertiary); }
+
+.cardArrow {
+  width: 1rem;
+  height: 1rem;
+  color: var(--color-text-tertiary);
+}
+
+.emptyState {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  border-radius: 18px;
+  background: var(--color-surface-soft);
+  color: var(--color-text-secondary);
+}
+
+.emptyState svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex: 0 0 auto;
+  color: var(--color-primary);
+}
+
+.emptyState p {
+  margin: 0;
+  font: var(--font-body-small);
+}
+
+.jobCard {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  background: var(--color-surface);
+}
+
+.jobTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.jobTop span {
+  padding: var(--space-1) var(--space-2);
+  border-radius: 999px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font: var(--font-caption);
+  font-weight: 750;
+}
+
+.jobTop small {
+  color: var(--color-text-tertiary);
+  font: var(--font-caption);
+}
+
+.jobCard dl {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+}
+
+.jobCard dl div {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-secondary);
+  font: var(--font-caption);
+}
+
+.jobCard dl svg {
+  width: .95rem;
+  height: .95rem;
+  color: var(--color-primary);
+}
+
+.jobCard dt {
+  color: var(--color-text-tertiary);
+}
+
+.jobCard dd {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-weight: 650;
+}
+
+.jobCard p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font: var(--font-body-small);
+}
+
+.jobCard strong {
+  color: var(--color-navy);
+  font: var(--font-body-small);
+  font-weight: 800;
+}
+
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: end center;
+  padding: var(--space-5);
+  background: color-mix(in srgb, var(--color-text) 45%, transparent);
+}
+
+.modalCard {
+  width: min(100%, 720px);
+  max-height: calc(100svh - var(--space-10));
+  overflow: auto;
+  border-radius: 28px;
+  padding: var(--space-5);
+}
+
+.modalHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.modalHeader h2 {
+  margin: var(--space-1) 0 0;
+  color: var(--color-text);
+  font: var(--font-title-2);
+}
+
+.closeButton {
+  display: inline-flex;
+  width: 44px;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  background: var(--color-surface-soft);
+  color: var(--color-text-secondary);
+}
+
+.closeButton svg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.fullLabel,
+.checkLabel,
+.formNote,
+.submitButton {
+  grid-column: 1 / -1;
+}
+
+.checkLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+}
+
+.checkLabel input {
+  width: 1.125rem;
+  height: 1.125rem;
+  accent-color: var(--color-primary);
+}
+
+.verificationFieldset {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  background: var(--color-surface-soft);
+}
+
+.verificationFieldset legend { padding: 0 var(--space-1); color: var(--color-text); font: var(--font-body-small); font-weight: 800; }
+.verificationFieldset > p { margin: var(--space-2) 0 var(--space-3); color: var(--color-text-secondary); font: var(--font-caption); }
+.verificationChoices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); }
+
+.formNote {
+  margin: 0;
+  padding: var(--space-3);
+  border-radius: 14px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary-strong);
+}
+
+.submitButton {
+  width: 100%;
+}
+
+.localNote {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+.localNote p {
+  margin: 0;
+}
+
+.primaryAction:active,
+.secondaryAction:active,
+.tabs button:active,
+.closeButton:active,
+.submitButton:active,
+.tutorCard:active {
+  transform: scale(.98);
+}
+
+.primaryAction:focus-visible,
+.secondaryAction:focus-visible,
+.tabs button:focus-visible,
+.closeButton:focus-visible,
+.submitButton:focus-visible,
+.tutorCard:focus-visible {
+  outline: 3px solid var(--color-ring);
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .filterPanel {
+    grid-template-columns: 1fr;
+  }
+
+  .metricRow {
+    grid-template-columns: 1fr;
+  }
+
+  .verificationChoices {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .page {
+    padding-top: var(--space-5);
+  }
+
+  .actionPanel,
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .lessonCodePanel { grid-template-columns: 1fr; }
+  .lessonCodePanel > p { grid-column: auto; }
+
+  .sectionHeader,
+  .cardTop {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .tutorCard {
+    grid-template-columns: auto 1fr;
+  }
+
+  .cardArrow {
+    grid-column: 2;
+    justify-self: end;
+  }
+
+  .modalBackdrop {
+    align-items: end;
+    padding: var(--space-3);
+  }
+
+  .modalCard {
+    border-radius: 28px 28px 20px 20px;
+  }
+
+  .requestInbox {
+    padding: var(--space-4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primaryAction,
+  .secondaryAction,
+  .tabs button,
+  .closeButton,
+  .submitButton,
+  .tutorCard {
+    transition: none;
+  }
+}

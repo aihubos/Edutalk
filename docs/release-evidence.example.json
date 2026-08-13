@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "legalReview": {
+    "approved": false,
+    "approvedAt": "",
+    "approvedBy": "",
+    "evidence": ""
+  },
+  "privateBeta": {
+    "completed": false,
+    "startedAt": "",
+    "completedAt": "",
+    "owner": "",
+    "evidence": ""
+  },
+  "backupRestore": {
+    "completed": false,
+    "completedAt": "",
+    "owner": "",
+    "evidence": ""
+  },
+  "monitoring": {
+    "connected": false,
+    "verifiedAt": "",
+    "owner": "",
+    "evidence": ""
+  },
+  "publicData": {
+    "childcare": { "approved": false, "checkedAt": "", "owner": "", "evidence": "" },
+    "kindergarten": { "approved": false, "checkedAt": "", "owner": "", "evidence": "" },
+    "academy": { "approved": false, "checkedAt": "", "owner": "", "evidence": "" }
+  }
+}
