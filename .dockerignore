@@ -1,0 +1,11 @@
+*
+!.next/
+!.next/standalone/
+!.next/standalone/**
+!.next/static/
+!.next/static/**
+!public/
+!public/**
+!deploy/
+!deploy/vps/
+!deploy/vps/Dockerfile

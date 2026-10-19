@@ -90,3 +90,7 @@
     transform: none;
   }
 }
+
+.searchBox { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 18px; min-height: 60px; }
+.searchBox input { min-width: 0; font-size: 16px; }
+.searchBox button { background: var(--color-primary); min-height: 48px; }

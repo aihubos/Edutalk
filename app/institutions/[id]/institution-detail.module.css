@@ -946,3 +946,16 @@
     gap: var(--space-6);
   }
 }
+
+/* Mobile detail: clear identity, evidence, and reachable contact actions. */
+.hero { padding: 8px 0 20px; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+.heroTitle h1 { font-size: clamp(1.75rem, 6.8vw, 2.5rem); line-height: 1.35; color: var(--color-text); }
+.section, .canonicalDetail, .trustSection, .workplaceSection { border-radius: 20px; box-shadow: none; }
+.heroActions a { min-height: 52px; border-radius: 16px; }
+.heroActions a:not(:first-child) { background: var(--color-surface); color: var(--color-primary-strong); border: 1px solid var(--color-border); }
+.backLink { min-height: 44px; }
+.demoBadge { font-size: 13px; }
+.heroTitle p { font-size: 14px; }
+.trustHeader { flex-wrap: wrap; gap: 12px; }
+.trustHeader h2, .sectionTitle h2, .workplaceHeader h2 { word-break: keep-all; }
+.trustHeader > span { flex-shrink: 0; }

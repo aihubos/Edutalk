@@ -1,4 +1,4 @@
-const CACHE_NAME = "edutalk-public-v10";
+const CACHE_NAME = "edutalk-public-v11";
 const APP_SHELL = [
   "/offline.html",
   "/icons/icon-192.png",

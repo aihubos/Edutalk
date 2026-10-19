@@ -260,3 +260,19 @@
     transform: none;
   }
 }
+
+.card { box-shadow: none; gap: 16px; }
+.featured { background: var(--color-surface); }
+.title { font-size: 18px; }
+.metaRow, .source, .metricLabel, .tagList span, .demoBadge { font-size: 13px; }
+.roleScores { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-radius: 16px; background: var(--color-surface-soft); padding: 12px 4px; }
+.roleScores > div { display: grid; gap: 4px; text-align: center; padding: 4px; border-right: 1px solid var(--color-border); }
+.roleScores > div:last-child { border-right: 0; }
+.roleScores span, .roleScores small { color: var(--color-text-secondary); font-size: 12px; }
+.roleScores strong { font-size: 18px; }
+.roleScores [data-active="true"] strong { color: var(--color-primary-strong); }
+.metrics { gap: 8px; }
+.metrics div { background: transparent; padding: 4px 0; }
+.footer { border-top: 1px solid var(--color-border); padding-top: 14px; }
+.iconButton { min-height: 48px; }
+@media (min-width: 760px) { .footer { flex-direction: column; align-items: stretch; } .actions { width: 100%; } }

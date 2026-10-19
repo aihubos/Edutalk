@@ -17,7 +17,8 @@ import {
 } from "lucide-react";
 import { useApp } from "@/lib/app-context";
 import { formatDistance, formatFee, institutionTypeLabels, roleLabels } from "@/lib/labels";
-import type { Institution, InstitutionType } from "@/lib/types";
+import type { Institution, InstitutionType, UserRole } from "@/lib/types";
+import { getWorkplaceSummary } from "@/lib/workplace-data";
 import styles from "./institution-card.module.css";
 
 const institutionIconMap: Record<InstitutionType, LucideIcon> = {
@@ -31,15 +32,18 @@ interface InstitutionCardProps {
   institution: Institution;
   variant?: "default" | "featured";
   className?: string;
+  displayRole?: UserRole;
 }
 
-export function InstitutionCard({ institution, variant = "default", className }: InstitutionCardProps) {
-  const { role, favorites, comparison, toggleFavorite, toggleComparison } = useApp();
+export function InstitutionCard({ institution, variant = "default", className, displayRole }: InstitutionCardProps) {
+  const { role: accountRole, favorites, comparison, toggleFavorite, toggleComparison } = useApp();
+  const role = displayRole ?? accountRole;
+  const workplace = getWorkplaceSummary(institution.id);
   const [compareMessage, setCompareMessage] = useState("");
   const Icon = institutionIconMap[institution.type];
   const isFavorite = favorites.includes(institution.id);
   const isCompared = comparison.includes(institution.id);
-  const roleRating = institution.ratings.find((rating) => rating.role === role);
+  const roleRating = role === "TEACHER" ? { score: workplace?.publicScore ?? null, count: workplace?.verifiedReviewCount ?? 0, isPublic: (workplace?.verifiedReviewCount ?? 0) >= 3 } : institution.ratings.find((rating) => rating.role === role);
   const detailHref = "/institutions/" + institution.id;
   const cardClassName = [
     styles.card,
@@ -96,6 +100,15 @@ export function InstitutionCard({ institution, variant = "default", className }:
             <span>{institution.address}</span>
           </p>
         </div>
+      </div>
+
+      <div className={styles.roleScores} aria-label="역할별 평점 · 체험용">
+        {(["PARENT", "STUDENT", "TEACHER"] as const).map((ratingRole) => {
+          const rating = institution.ratings.find((item) => item.role === ratingRole);
+          const count = ratingRole === "TEACHER" ? workplace?.verifiedReviewCount ?? 0 : rating?.count ?? 0;
+          const score = ratingRole === "TEACHER" ? count >= 3 ? workplace?.publicScore : null : rating?.isPublic ? rating.score : null;
+          return <div key={ratingRole} data-active={role === ratingRole}><span>{roleLabels[ratingRole]}</span><strong>{score != null ? score.toFixed(1) : ratingRole === "TEACHER" ? "공개 대기" : "—"}</strong><small>{ratingRole === "TEACHER" && count < 3 ? `${count}/3건` : `${count}건`}</small></div>;
+        })}
       </div>
 
       <div className={styles.metrics} aria-label={institution.name + " 핵심 정보"}>

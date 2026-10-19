@@ -10,3 +10,5 @@ data/etl/imports/
 *.institution-import.json
 .superloopy/evidence/frontend/*/screenshots/
 .playwright-cli/
+
+*.tsbuildinfo

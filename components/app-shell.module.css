@@ -504,3 +504,9 @@
     border-radius: var(--radius-xl);
   }
 }
+
+.header { background: var(--color-surface); backdrop-filter: none; }
+.zoneSelect { padding: 0 10px; border: 1px solid var(--color-border); border-radius: var(--radius-pill); }
+.bottomNav { background: var(--color-surface); backdrop-filter: none; }
+.bottomLinkActive .bottomIcon { background: var(--color-primary-soft); border-radius: 12px; padding: 3px 14px; }
+@media (max-width: 380px) { .header { padding-inline: 12px; } .zoneSelect { padding-inline: 6px; font-size: 14px; } .headerActions { gap: 0; } }

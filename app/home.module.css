@@ -379,3 +379,29 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+/* Claude Design mobile layout, using EDU톡's original Toss blue palette. */
+.hero { border: 0; border-radius: 0; background: transparent; box-shadow: none; padding: var(--space-2) 0 var(--space-4); gap: var(--space-5); }
+.hero h1 { font-size: clamp(1.75rem, 6.8vw, 2.5rem); line-height: 1.35; letter-spacing: -0.04em; color: var(--color-text); }
+.heroText { gap: var(--space-3); }
+.heroPaths { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.pathChoice { display: grid; gap: 10px; min-width: 0; padding: 20px; min-height: 160px; border: 1px solid var(--color-border); border-radius: 20px; background: var(--color-surface); color: var(--color-text-secondary); text-align: left; cursor: pointer; transition: background 140ms, color 140ms; }
+.pathChoice strong { font-size: 20px; line-height: 1.35; letter-spacing: -0.025em; word-break: keep-all; }
+.pathChoice small { font-size: 13px; }
+.pathChoice[aria-pressed="true"] { color: #fff; background: var(--color-primary); border-color: var(--color-primary); }
+.pathChoice[aria-pressed="true"] small { color: #fff; }
+.pathDestination { display: flex; justify-content: space-between; align-items: center; min-height: 44px; color: var(--color-primary-strong); font-size: 14px; font-weight: 650; }
+.startLink { display: inline-flex; align-items: center; align-self: flex-start; gap: 6px; min-height: 44px; font-size: 14px; color: var(--color-text-secondary); }
+.quickGrid, .typeGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.toolCard, .typeCard, .emphasisToolCard { box-shadow: none; min-height: 120px; }
+.emphasisToolCard { background: var(--color-primary-soft); }
+.sectionHeader { align-items: center; }
+.sectionHeader a { max-width: 100px; text-align: right; line-height: 1.5; }
+@media (min-width: 760px) {
+  .hero { max-width: 760px; width: 100%; align-self: center; padding-block: 28px; }
+  .heroPaths { gap: 16px; }
+  .pathChoice { min-height: 172px; }
+  .quickGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .typeGrid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .sectionHeader a { max-width: none; }
+}

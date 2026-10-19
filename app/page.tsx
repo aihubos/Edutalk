@@ -98,7 +98,8 @@ export default function HomePage() {
   const [canonicalInstitutions, setCanonicalInstitutions] = useState<CanonicalInstitution[]>([]);
   const [canonicalLoading, setCanonicalLoading] = useState(accountMode);
   const [canonicalError, setCanonicalError] = useState("");
-  const discoveryRole = onboardingComplete ? role : "PARENT";
+  const [homePath, setHomePath] = useState<"workplace" | "learning">("workplace");
+  const discoveryRole = homePath === "workplace" ? "TEACHER" : onboardingComplete && role === "STUDENT" ? "STUDENT" : "PARENT";
 
   useEffect(() => {
     if (!accountMode) return;
@@ -251,41 +252,27 @@ export default function HomePage() {
       <section className={styles.hero} aria-labelledby="home-title">
         <div className={styles.heroText}>
           <span className={accountMode ? styles.accountBadge : styles.demoBadge}>{accountMode ? "공개 기관 정보" : "체험용 데이터"}</span>
-          <p className={styles.eyebrow}>아이에게 좋은 배움, 교육자에게 좋은 일터</p>
-          <h1 id="home-title">선생님의 좋은 일터가 아이의 좋은 배움으로 이어지도록</h1>
+          <p className={styles.eyebrow}>우리 동네 교육을 더 가깝게</p>
+          <h1 id="home-title">아이에게 좋은 배움,<br />교육자에게 좋은 일터</h1>
           <p>교육자 만족도는 학생 배움환경을 판단하는 신호이며, 긍정적 결과를 보장하지 않습니다.</p>
         </div>
 
-        <div className={styles.heroPaths} aria-label="홈 주요 기능">
-          <Link className={styles.primaryPath} href="/discover">
-            <span className={styles.pathIcon} aria-hidden="true">
-              <Search size={22} />
-            </span>
-            <span className={styles.pathCopy}>
-              <strong>아이에게 맞는 기관 찾기</strong>
-              <small>지역과 유형을 골라 비교해 보세요</small>
-            </span>
-            <ChevronRight size={20} aria-hidden="true" />
-          </Link>
-
-          <Link className={styles.workplacePath} href="/rankings?tab=workplace">
-            <span className={styles.pathIcon} aria-hidden="true">
-              <Handshake size={22} />
-            </span>
-            <span className={styles.pathCopy}>
-              <strong>좋은 일터·익명 근무후기</strong>
-              <small>인증된 교육자 후기로 근무 환경을 따로 살펴보세요</small>
-            </span>
-            <ChevronRight size={20} aria-hidden="true" />
-          </Link>
-          {!onboardingComplete ? <Link className={styles.workplacePath} href="/login">
-            <span className={styles.pathCopy}>
-              <strong>로그인·체험 시작</strong>
-              <small>내 역할과 추천 기준을 설정해 보세요</small>
-            </span>
-            <ChevronRight size={20} aria-hidden="true" />
-          </Link> : null}
+        <div className={styles.heroPaths} aria-label="살펴볼 정보 선택">
+          <button type="button" className={styles.pathChoice} aria-pressed={homePath === "workplace"} onClick={() => setHomePath("workplace")}>
+            <Handshake size={24} aria-hidden="true" />
+            <strong>교육자에게<br />좋은 일터</strong>
+            <small>익명 근무후기</small>
+          </button>
+          <button type="button" className={styles.pathChoice} aria-pressed={homePath === "learning"} onClick={() => setHomePath("learning")}>
+            <GraduationCap size={24} aria-hidden="true" />
+            <strong>아이에게<br />좋은 배움</strong>
+            <small>기관 찾기·비교</small>
+          </button>
         </div>
+        <Link className={styles.pathDestination} href={homePath === "workplace" ? "/rankings?tab=workplace" : "/discover"}>
+          {homePath === "workplace" ? "좋은 일터·익명 근무후기 살펴보기" : "아이에게 맞는 기관 찾아보기"}<ChevronRight size={18} aria-hidden="true" />
+        </Link>
+        {!onboardingComplete ? <Link className={styles.startLink} href="/login">로그인·체험 시작 <ChevronRight size={16} aria-hidden="true" /></Link> : null}
 
         {onboardingComplete ? <div className={styles.rolePanel} aria-label="이용자 역할 선택">
           {roles.map((item) => (
@@ -327,6 +314,18 @@ export default function HomePage() {
             </button>
           ))}
         </div>
+      </section>
+
+      <section className={styles.listSection} aria-labelledby="recommend-title">
+        <div className={styles.sectionHeader}>
+          <div>
+            <p className={styles.sectionKicker}>{accountMode ? "공개 확인 목록" : "추천 목록"}</p>
+            <h2 id="recommend-title">{accountMode ? "최근 공개 확인된 기관" : homePath === "workplace" ? "교육자 근무후기로 보는 일터" : "아이에게 맞는 배움을 찾아요"}</h2>
+          </div>
+          <Link href={buildDiscoverHref(zone, { sort: "RATING" })}>추천 기관 더 보기</Link>
+        </div>
+
+        {accountMode ? <CanonicalHomeList institutions={recentCanonicalInstitutions} loading={canonicalLoading} error={canonicalError} empty="공개 기관 정보가 아직 없어요." /> : <div className={styles.cardStack}>{recommendedInstitutions.map((institution) => <div className={styles.recommendationItem} key={institution.id}><InstitutionCard institution={institution} displayRole={discoveryRole} />{onboardingComplete && getProfileRecommendation(institution, roleProfile, discoveryRole).reasons.length ? <p className={styles.recommendationReason}>추천 이유 · {getProfileRecommendation(institution, roleProfile, discoveryRole).reasons.join(" · ")}</p> : null}</div>)}</div>}
       </section>
 
       {onboardingComplete && roleTools.length > 0 ? (
@@ -409,18 +408,6 @@ export default function HomePage() {
             );
           })}
         </div>
-      </section>
-
-      <section className={styles.listSection} aria-labelledby="recommend-title">
-        <div className={styles.sectionHeader}>
-          <div>
-            <p className={styles.sectionKicker}>{accountMode ? "공개 확인 목록" : "추천 목록"}</p>
-            <h2 id="recommend-title">{accountMode ? "최근 공개 확인된 기관" : onboardingComplete ? `${roleLabels[role]}에게 먼저 볼 곳` : "먼저 살펴볼 기관"}</h2>
-          </div>
-          <Link href={buildDiscoverHref(zone, { sort: "RATING" })}>추천 기관 더 보기</Link>
-        </div>
-
-        {accountMode ? <CanonicalHomeList institutions={recentCanonicalInstitutions} loading={canonicalLoading} error={canonicalError} empty="공개 기관 정보가 아직 없어요." /> : <div className={styles.cardStack}>{recommendedInstitutions.map((institution) => <div className={styles.recommendationItem} key={institution.id}><InstitutionCard institution={institution} />{onboardingComplete && getProfileRecommendation(institution, roleProfile, discoveryRole).reasons.length ? <p className={styles.recommendationReason}>추천 이유 · {getProfileRecommendation(institution, roleProfile, discoveryRole).reasons.join(" · ")}</p> : null}</div>)}</div>}
       </section>
 
       <section className={styles.listSection} aria-labelledby="near-title">
